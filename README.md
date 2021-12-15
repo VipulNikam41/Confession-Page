@@ -1,5 +1,5 @@
 # Confession-Page
-Confession page project in Flask
+Confession page project in Flask. this is a confession page where users can upload a text confession anonymously and update and delete their existing confessions. you can search for any confession by any word inside it or by date filter.
 
 ## Installation:
 first, install flask:
