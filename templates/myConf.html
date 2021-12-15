@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home Page</title>
+</head>
+<body>
+	<h1>Hi!! {{name}}</h1>
+	<form action = "/show">
+		<button type = "submit">Home</button>
+	</form>	
+
+	{% for post in allPost %}
+		<!-- <h2>{{post.sno}} {{post.name}} {{post.date}}</h2> -->
+		<!-- <h2>#Confession{{loop.index}}</h2> -->
+		<h2>#Confession {{post.sno}}</h2>
+		<h2>{{post.date}}</h2>
+		<h3>{{post.tags}}</h3>
+		<h3>{{post.text}}</h3>
+
+		<form method ="POST" action="/edit">
+			<button type="submit" name="sno" value="{{post.sno}}"> edit </button>
+		</form> 
+		<form method ="POST" action="/delete">
+			<button type="submit" name="sno" value="{{post.sno}}"> delete </button>
+		</form> 
+        <h1>----------------------</h1>
+	{% endfor %}
+</body>
+</html>

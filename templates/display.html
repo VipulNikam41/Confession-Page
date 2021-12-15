@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home Page</title>
+	<style>
+		.mix {
+			border-style: dotted dashed solid double;
+			padding: 10px;
+			margin: 10px;
+			margin-left: 100px;
+			margin-right: 800px;
+		}
+		.row {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.row2 {
+			content: "";
+			padding: 10px;
+			margin: 10px;
+			width: 800px;
+			display: table;
+			clear: both;
+			border-style: dotted;
+			border-radius: 25px;
+		}
+		.row3 {
+			content: "";
+			padding: 10px;
+			margin: 10px;
+			width: 800px;
+			min-height: 100px;
+			display: table;
+			clear: both;
+			border-style: dotted;
+			border-radius: 25px;
+		}
+		.column1 {
+			float: left;
+			width: 250px;
+			padding: 10px;
+			margin: 10px;
+			border-style: dotted;
+			border-radius: 25px;
+		}
+		.column2 {
+			float: right;
+			width: 500px;
+			padding: 10px;
+			margin: 10px;
+			border-style: dotted;
+			border-radius: 25px;
+		}
+
+			/* Clear floats after the columns */
+		/* .row:after {
+			content: "";
+			display: table;
+			clear: both;
+		} */
+	</style>
+</head>
+<body>
+	<h1>Hi!! {{name}}</h1>
+	<form action = "/addConfession">
+		<button type = "submit">add confession</button>
+	</form>	
+	<form action = "/myConfession">
+		<button type = "submit">my confessions</button>
+	</form>	
+	<form action = "/logout">
+		<button type = "submit">logout</button>
+	</form>	
+	<form action = "/show">
+		<button type = "submit">Home</button>
+	</form>
+	<h2>{{mag}}</h2>
+	<form action="/url" method="POST">
+		<div class="mb-3">
+		  <label for="exampleInputEmail1" class="form-label">Search between dates:</label>
+		  <input type="text" class="form-control" name = "date1" id="exampleInputEmail1" placeholder="From date">
+		  <input type="text" class="form-control" name = "date2" id="exampleInputEmail1" placeholder="to date">
+		  <button type="submit" class="btn btn-primary">Search</button>
+		</div>
+	  </form>
+	  <br>
+	  <form action="/word" method="POST">
+		<div class="mb-3">
+		  <label for="exampleInputEmail1" class="form-label">Search by word</label>
+		  <input type="text" class="form-control" name = "word" id="exampleInputEmail1" placeholder="enter word">
+			<button type="submit" class="btn btn-primary">Search</button>
+		</div>
+	  </form>
+	  <br>
+	  <form action="/tag" method="POST">
+		<div class="mb-3">
+		  <label for="exampleInputEmail1" class="form-label">Search by tag</label>
+		  <input type="text" class="form-control" name = "tag" id="exampleInputEmail1" placeholder="enter tag">
+			<button type="submit" class="btn btn-primary">Search</button>
+		</div>
+	  </form>
+
+	{% for post in allPost %}
+		<!-- <h2>{{post.sno}} {{post.name}} {{post.date}}</h2> -->
+		<!-- <h2>#Confession{{loop.index}}</h2> -->
+		<div class="mix">
+			<div class="row">
+				<div class="column1">
+					<h2>#Confession {{post.sno}}</h2>
+				</div>
+				<div class="column2">
+					<h2>{{post.date}}</h2>
+				</div>
+			</div>
+			<div class="row2">
+				<h3>{{post.tags}}</h3>
+			</div>
+			<div class="row3">
+				<h3>{{post.text}}</h3>
+			</div>
+		</div>
+	{% endfor %}
+</body>
+</html>

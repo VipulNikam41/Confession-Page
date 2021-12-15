@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My Profile</title>
+</head>
+<body>
+	<h1>Hi!! {{name}}</h1>
+    <form action = "/show">
+		<button type = "submit">Home</button>
+	</form>
+    <h2>for {{key}} confession</h2>
+    <h2>Your tags are</h2>
+    <h3>{{tgs}}</h3>
+    <h2>Your confession is</h2>
+    <h3>{{txt}}</h3>
+    <h2>enter new confession</h2>
+	<form action="/update" method="POST">
+		<div class="mb-3">
+		  <label for="exampleInputEmail1" class="form-label">confession</label>
+		  <input type="text" class="form-control" name = "conf" id="exampleInputEmail1" aria-describedby="emailHelp">
+		</div>
+		<div class="mb-3">
+		  <label for="exampleInputPassword1" class="form-label">tags</label>
+		  <input type="text" class="form-control" name = "tag" id="exampleInputPassword1">
+		</div>
+        <button type="submit" name="sno" value="{{key}}"> commit </button>
+	  </form>
+</body>
+</html>
